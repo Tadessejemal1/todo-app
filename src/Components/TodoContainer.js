@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 import Header from './Header';
 import TodoList from './TodosList';
 import InputTodo from './InputTodo';
+import About from '../pages/About';
+import NotMatch from '../pages/NotMatch';
+import Navbar from "./Navbar";
 
 function getInitialTodos() {
   // getting stored items
@@ -76,18 +80,32 @@ const TodoContainer = () => {
   }, [todos])
 
   return( 
-    <div className='container'>
-      <div className="inner">
-        <Header />
-        <InputTodo addTodoProps={addTodoItem} />
-        <TodoList
-          todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={deleteTodo}
-          setUpdate={setUpdate}
-        />
-      </div>
-    </div>
+    <>
+      <Navbar />
+     
+        <Route path="/" exact>
+          <React.Fragment>
+            <div className='container'>
+              <div className="inner">
+                <Header />
+                <InputTodo addTodoProps={addTodoItem} />
+                <TodoList
+                  todos={todos}
+                  handleChangeProps={handleChange}
+                  deleteTodoProps={deleteTodo}
+                  setUpdate={setUpdate}
+                />
+              </div>
+            </div>
+          </React.Fragment>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="*">
+          <NotMatch />
+        </Route>
+    </>
   )
 }
 
