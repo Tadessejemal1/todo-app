@@ -1,4 +1,4 @@
-# Math-Magicians
+# Todo-app
 
 >  This is the project of the todo-app application. You will set up the environment and tools needed to develop a React application. In the following projects, you will develop the actual application.
 
