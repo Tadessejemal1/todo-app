@@ -2,7 +2,7 @@ import React from "react";
 
 import TodoItem from './TodoItem';
 
-class TodosList extends React.Component {
+class TodoList extends React.Component {
   render(){
     return(
       <ul>
@@ -19,4 +19,4 @@ class TodosList extends React.Component {
   } 
 }
 
-export default TodosList;
+export default TodoList;
