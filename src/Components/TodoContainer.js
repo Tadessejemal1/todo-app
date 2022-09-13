@@ -63,8 +63,6 @@ const TodoContainer = () => {
   }
 
   useEffect(() => {
-    console.log("test run")
-    // getting stored items
     const temp = localStorage.getItem("todos")
     const loadedTodos = JSON.parse(temp)
 
@@ -74,7 +72,6 @@ const TodoContainer = () => {
   }, [])
 
   useEffect(() => {
-    // storing todos items
     const temp = JSON.stringify(todos)
     localStorage.setItem("todos", temp)
   }, [todos])
@@ -82,7 +79,7 @@ const TodoContainer = () => {
   return( 
     <>
       <Navbar />
-     
+      <Switch>
         <Route path="/" exact>
           <React.Fragment>
             <div className='container'>
@@ -105,6 +102,7 @@ const TodoContainer = () => {
         <Route path="*">
           <NotMatch />
         </Route>
+      </Switch>
     </>
   )
 }
